@@ -1,0 +1,187 @@
+/*O BRAKU SLIDESHOW*/
+
+
+.carousel-kontejner{
+    width: 100%;
+  text-align: center;
+  display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 70vh;
+    background-color: #33292A;
+    border-top: #bf1e2e solid 10px;
+  }
+  .h1-o-braku {
+    color: white;
+    margin-bottom: 100px;
+    font-weight: 300;
+  }
+  
+  .carousel-container {
+    position: relative;
+    width: 800px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .card {
+    padding: 15px;
+    position: absolute;
+    width: 450px;
+    height: 300px;
+    border-radius: 12px;
+    transition: all 0.5s ease;
+    opacity: 1;
+    transform: scale(1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .center {
+    z-index: 3;
+    transform: scale(1.1);
+    opacity: 1;
+  }
+  
+  .left, .right {
+  z-index: 2;
+  }
+  
+  .left::after,
+  .right::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.2);
+  mix-blend-mode: multiply;
+  border-radius: 12px;
+  pointer-events: none;
+  }
+  
+  .far-left, .far-right {
+    z-index: 1;
+    opacity: 0.4;
+  }
+  
+  .bijela { background-color: white; }
+  .crvena { background-color: #bf1e2e }
+  .žuta { background-color: #FAA916; }
+  
+  .left { transform: translateX(-40vh) scale(0.95) translateY(50px); }
+  .far-left { transform: translateX(-60vh) scale(0.85); }
+  .right { transform: translateX(40vh) scale(0.95) translateY(50px); }
+  .far-right { transform: translateX(60vh) scale(0.85); }
+  
+  .arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 40px;
+    color: white;
+    cursor: pointer;
+    z-index: 5;
+    user-select: none;
+    transition: 0.2s;
+  }
+  
+  .arrow:hover {
+    color: #ccc;
+  }
+  
+  /* Move arrows outside the container */
+  .left-arrow {
+    left: -65%;  /* Increase the value to move further out */
+  }
+  
+  .right-arrow {
+    right: -65%; /* Increase the value to move further out */
+  }
+  
+  
+  /* MEDIA QUERIES ZA RESPONZIVNOST */
+  
+  @media (max-width: 1200px) {
+    .o-braku {
+      margin-top: 50px;
+      flex-direction: column;
+    }
+  
+    .o-braku-text,
+    .o-braku-img {
+      width: 100%;
+    }
+  
+    .carousel-container {
+      width: 95%;  /* Manja širina za manji ekran */
+      height: 250px;
+    }
+  
+    .card {
+      width: 70vw;  /* Povećaj širinu kartica na manjim ekranima */
+      max-width: 350px;
+    }
+  
+    .left-arrow,
+    .right-arrow {
+      font-size: 30px;  /* Manje strelice na manjim ekranima */
+    }
+  
+    /* Move arrows outside the container */
+  .left-arrow {
+    left: -65%;  /* Increase the value to move further out */
+  }
+  
+  .right-arrow {
+    right: -65%; /* Increase the value to move further out */
+  }
+  
+  }
+  
+  @media (max-width: 768px) {
+    .o-braku {
+      margin-top: 30px;
+      flex-direction: column;
+    }
+  
+    .carousel-container {
+      height: 200px;
+    }
+  
+    .card {
+      width: 80vw;  /* Širina kartica još veća */
+      max-width: 300px;
+    }
+  
+    .left-arrow,
+    .right-arrow {
+      font-size: 25px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .o-braku-container {
+      padding: 10px;
+    }
+  
+    .carousel-kontejner {
+      height: 60vh;
+    }
+  
+    .carousel-container {
+      height: 180px;
+    }
+  
+    .card {
+      width: 85vw;  /* Kartice zauzimaju veću širinu */
+      max-width: 280px;
+    }
+  
+    .left-arrow,
+    .right-arrow {
+      font-size: 20px;
+    }
+  }
